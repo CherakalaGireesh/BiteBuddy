@@ -3,4 +3,13 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
          version="6.0">
+    <servlet>
+        <servlet-name>IntroServlet</servlet-name>
+        <servlet-class>com.bitebuddy.bitebuddy.controller.IntroServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>IntroServlet</servlet-name>
+        <url-pattern>/intro</url-pattern>
+    </servlet-mapping>
 </web-app>
