@@ -1,4 +1,4 @@
-package com.bitebuddy.bitebuddy.model.beans;
+package com.bitebuddy.bitebuddy.model.beans.introBeans;
 
 import java.sql.Timestamp;
 
@@ -17,7 +17,15 @@ public class WhyChooseUs {
     //Default constructor
     public WhyChooseUs() {}
 
-    //Parameterized
+    //Parameterized constructors
+    public WhyChooseUs(String imagePath, String imageName, String caption, String description, String backgroundColor) {
+        this.imagePath = imagePath;
+        this.imageName = imageName;
+        this.caption = caption;
+        this.description = description;
+        this.backgroundColor = backgroundColor;
+    }
+
     public WhyChooseUs(int id, String imageBasePath, String imagePath, String imageName, String caption, String description, String backgroundColor, Timestamp createAt, Timestamp updateAt) {
         this.id = id;
         this.imageBasePath = imageBasePath;

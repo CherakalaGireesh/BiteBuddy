@@ -1,46 +1,42 @@
-package com.bitebuddy.bitebuddy.model.beans;
+package com.bitebuddy.bitebuddy.model.beans.introBeans;
 
 import java.sql.Timestamp;
 
-public class HowItWorks {
-
-    private Long id;
+public class OurStory {
+    private int id;
     private String imageBasePath;
     private String imageName;
     private String caption;
     private String description;
-    private String userAction;
-    private String additionalInfo;
-    private String tip;
-    private String status;
-    private Timestamp createdAt;
-    private Timestamp updatedAt;
+    private java.sql.Timestamp createdAt;
+    private java.sql.Timestamp updatedAt;
 
     // Default constructor
-    public HowItWorks() {}
+    public OurStory() {}
 
     // Parameterized constructor
-    public HowItWorks(Long id, String imageBasePath, String imageName, String caption, String description,
-                      String userAction, String additionalInfo, String tip, String status,
-                      Timestamp createdAt, Timestamp updatedAt) {
+    public OurStory(String imageName, String caption, String description) {
+        this.imageName = imageName;
+        this.caption = caption;
+        this.description = description;
+    }
+
+    public OurStory(int id, String imageBasePath, String imageName, String caption, String description, Timestamp createdAt, Timestamp updatedAt) {
         this.id = id;
         this.imageBasePath = imageBasePath;
         this.imageName = imageName;
         this.caption = caption;
         this.description = description;
-        this.userAction = userAction;
-        this.additionalInfo = additionalInfo;
-        this.tip = tip;
-        this.status = status;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
     }
 
-    public Long getId() {
+    // Getter and Setter methods
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -76,43 +72,11 @@ public class HowItWorks {
         this.description = description;
     }
 
-    public String getUserAction() {
-        return userAction;
-    }
-
-    public void setUserAction(String userAction) {
-        this.userAction = userAction;
-    }
-
-    public String getAdditionalInfo() {
-        return additionalInfo;
-    }
-
-    public void setAdditionalInfo(String additionalInfo) {
-        this.additionalInfo = additionalInfo;
-    }
-
-    public String getTip() {
-        return tip;
-    }
-
-    public void setTip(String tip) {
-        this.tip = tip;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
     public Timestamp getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(Timestamp createdAt) {
+    public void setCreatedAt(java.sql.Timestamp createdAt) {
         this.createdAt = createdAt;
     }
 
@@ -120,25 +84,21 @@ public class HowItWorks {
         return updatedAt;
     }
 
-    public void setUpdatedAt(Timestamp updatedAt) {
+    public void setUpdatedAt(java.sql.Timestamp updatedAt) {
         this.updatedAt = updatedAt;
     }
 
+    // Overridden toString method
     @Override
     public String toString() {
-        return "HowItWorks{" +
+        return "OurStory{" +
                 "id=" + id +
                 ", imageBasePath='" + imageBasePath + '\'' +
                 ", imageName='" + imageName + '\'' +
                 ", caption='" + caption + '\'' +
                 ", description='" + description + '\'' +
-                ", userAction='" + userAction + '\'' +
-                ", additionalInfo='" + additionalInfo + '\'' +
-                ", tip='" + tip + '\'' +
-                ", status='" + status + '\'' +
                 ", createdAt=" + createdAt +
                 ", updatedAt=" + updatedAt +
                 '}';
     }
-
 }

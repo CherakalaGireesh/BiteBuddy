@@ -7,32 +7,29 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 public class DBUtil {
-    private static String url;
-    private static String username;
-    private static String password;
-    private static String driverClassName;
+    private static final String url = PropertiesUtil.getProperty("db.url");
+    private static final String username = PropertiesUtil.getProperty("db.username");
+    private static final String password = PropertiesUtil.getProperty("db.password");
+    private static final String driverClassName = PropertiesUtil.getProperty("db.driverClassName");
 
-    static{
-        try(InputStream inputStream = DBUtil.class.getClassLoader().getResourceAsStream("database.properties")){
-            Properties properties = new Properties();
-            properties.load(inputStream);
-
-            //load properties
-            url = properties.getProperty("db.url");
-            username = properties.getProperty("db.username");
-            password = properties.getProperty("db.password");
-            driverClassName = properties.getProperty("db.driverClass");
-
-            //load driver class
+    static {
+        try {
             Class.forName(driverClassName);
-        }
-        catch(Exception exception){
-            exception.printStackTrace();
-            throw new ExceptionInInitializerError("Database properties could not be loaded");
+            System.out.println("Successfully loaded driver class name : " + driverClassName);
+        } catch (ClassNotFoundException exception) {
+            System.err.println("Failed to load DB Driver Class : " + driverClassName);
         }
     }
 
     public static Connection getConnection() throws SQLException {
-        return DriverManager.getConnection(url, username, password);
+        try {
+            Connection connection = DriverManager.getConnection(url, username, password + "g");
+            System.out.println("Successfullly connected to databse using url : " + url);
+        } catch (SQLException exception) {
+            System.err.println("Failed to connect to database using url : " + url);
+            throw exception;
+        }
+
+        return null;
     }
 }

@@ -1,33 +1,36 @@
-package com.bitebuddy.bitebuddy.model.beans;
+package com.bitebuddy.bitebuddy.model.beans.introBeans;
 
 import java.sql.Timestamp;
 
-public class IntroSlide {
+public class HowItWorks {
 
     private Long id;
     private String imageBasePath;
     private String imageName;
     private String caption;
     private String description;
-    private String features;
-    private String keywords;
+    private String userAction;
+    private String additionalInfo;
+    private String tip;
     private String status;
     private Timestamp createdAt;
     private Timestamp updatedAt;
 
     // Default constructor
-    public IntroSlide() {}
+    public HowItWorks() {}
 
     // Parameterized constructor
-    public IntroSlide(Long id, String imageBasePath, String imageName, String caption, String description,
-                      String features, String keywords, String status, Timestamp createdAt, Timestamp updatedAt) {
+    public HowItWorks(Long id, String imageBasePath, String imageName, String caption, String description,
+                      String userAction, String additionalInfo, String tip, String status,
+                      Timestamp createdAt, Timestamp updatedAt) {
         this.id = id;
         this.imageBasePath = imageBasePath;
         this.imageName = imageName;
         this.caption = caption;
         this.description = description;
-        this.features = features;
-        this.keywords = keywords;
+        this.userAction = userAction;
+        this.additionalInfo = additionalInfo;
+        this.tip = tip;
         this.status = status;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
@@ -73,20 +76,28 @@ public class IntroSlide {
         this.description = description;
     }
 
-    public String getFeatures() {
-        return features;
+    public String getUserAction() {
+        return userAction;
     }
 
-    public void setFeatures(String features) {
-        this.features = features;
+    public void setUserAction(String userAction) {
+        this.userAction = userAction;
     }
 
-    public String getKeywords() {
-        return keywords;
+    public String getAdditionalInfo() {
+        return additionalInfo;
     }
 
-    public void setKeywords(String keywords) {
-        this.keywords = keywords;
+    public void setAdditionalInfo(String additionalInfo) {
+        this.additionalInfo = additionalInfo;
+    }
+
+    public String getTip() {
+        return tip;
+    }
+
+    public void setTip(String tip) {
+        this.tip = tip;
     }
 
     public String getStatus() {
@@ -115,17 +126,19 @@ public class IntroSlide {
 
     @Override
     public String toString() {
-        return "IntroSlide{" +
+        return "HowItWorks{" +
                 "id=" + id +
                 ", imageBasePath='" + imageBasePath + '\'' +
                 ", imageName='" + imageName + '\'' +
                 ", caption='" + caption + '\'' +
                 ", description='" + description + '\'' +
-                ", features='" + features + '\'' +
-                ", keywords='" + keywords + '\'' +
+                ", userAction='" + userAction + '\'' +
+                ", additionalInfo='" + additionalInfo + '\'' +
+                ", tip='" + tip + '\'' +
                 ", status='" + status + '\'' +
                 ", createdAt=" + createdAt +
                 ", updatedAt=" + updatedAt +
                 '}';
     }
+
 }
