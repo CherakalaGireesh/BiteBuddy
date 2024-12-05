@@ -16,12 +16,12 @@ public class WebAppInitializer implements ServletContextListener {
         try {
             PropertiesUtil.loadProperties();
             System.out.println("Properties loaded sucessfully");
-            DBUtil.getConnection();
+            DBUtil.establishConnection();
             System.out.println("Database connection established successfully");
         } catch (IOException exception) {
-            System.err.println("Error occurred while loading properties");
+            System.err.println("Error occurred while loading properties : " + exception.getMessage());
         } catch (SQLException exception) {
-            System.err.println("Error occurred during database connection initialization");
+            System.err.println("Error occurred during database connection initialization : " + exception.getMessage());
         }
     }
 

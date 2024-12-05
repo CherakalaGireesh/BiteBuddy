@@ -4,7 +4,7 @@ import java.sql.Timestamp;
 
 public class IntroSlide {
 
-    private Long id;
+    private int id;
     private String imageBasePath;
     private String imageName;
     private String caption;
@@ -20,7 +20,7 @@ public class IntroSlide {
 
     // Parameterized constructor
 
-    public IntroSlide(Long id, String imageBasePath, String imageName, String caption, String description, String features, String keywords, String status, Timestamp createdAt, Timestamp updatedAt) {
+    public IntroSlide(int id, String imageBasePath, String imageName, String caption, String description, String features, String keywords, String status, Timestamp createdAt, Timestamp updatedAt) {
         this.id = id;
         this.imageBasePath = imageBasePath;
         this.imageName = imageName;
@@ -33,11 +33,11 @@ public class IntroSlide {
         this.updatedAt = updatedAt;
     }
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 

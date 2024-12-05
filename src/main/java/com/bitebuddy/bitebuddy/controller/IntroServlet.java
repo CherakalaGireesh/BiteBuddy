@@ -1,6 +1,8 @@
 package com.bitebuddy.bitebuddy.controller;
 
 import com.bitebuddy.bitebuddy.model.beans.introBeans.*;
+import com.bitebuddy.bitebuddy.model.dao.introDao.IntroSlideDao;
+import com.bitebuddy.bitebuddy.model.dao.introDao.IntroSlideDaoImpl;
 import com.bitebuddy.bitebuddy.model.service.IntroService;
 import com.bitebuddy.bitebuddy.model.service.IntroServiceImpl;
 import jakarta.servlet.ServletConfig;
@@ -24,15 +26,6 @@ public class IntroServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//        List<OurMission> ourMissions = introService.getAllOurMissions();
-//        List<OurPromise> ourPromises = introService.getAllOurPromises();
-//        List<OurStory> ourStories = introService.getAllOurStories();
-//        List<OurTeam> ourTeams = introService.getAllOurTeams();
-//        List<OurValue> ourValues = introService.getAllOurValues();
-//        System.out.println(ourMissions);
-//        System.out.println(ourPromises);
-//        System.out.println(ourStories);
-//        System.out.println(ourTeams);
-//        System.out.println(ourValues);
+
     }
 }

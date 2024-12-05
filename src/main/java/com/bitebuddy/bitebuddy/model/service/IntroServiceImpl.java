@@ -1,8 +1,6 @@
 package com.bitebuddy.bitebuddy.model.service;
 
 import com.bitebuddy.bitebuddy.model.beans.introBeans.*;
-import com.bitebuddy.bitebuddy.model.dao.IntroDao;
-import com.bitebuddy.bitebuddy.model.dao.IntroDaoImpl;
 
 import java.util.List;
 

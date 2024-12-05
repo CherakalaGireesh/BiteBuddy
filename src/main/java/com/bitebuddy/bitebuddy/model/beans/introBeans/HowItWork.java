@@ -2,9 +2,9 @@ package com.bitebuddy.bitebuddy.model.beans.introBeans;
 
 import java.sql.Timestamp;
 
-public class HowItWorks {
+public class HowItWork {
 
-    private Long id;
+    private int id;
     private String imageBasePath;
     private String imageName;
     private String caption;
@@ -17,12 +17,12 @@ public class HowItWorks {
     private Timestamp updatedAt;
 
     // Default constructor
-    public HowItWorks() {}
+    public HowItWork() {}
 
     // Parameterized constructor
-    public HowItWorks(Long id, String imageBasePath, String imageName, String caption, String description,
-                      String userAction, String additionalInfo, String tip, String status,
-                      Timestamp createdAt, Timestamp updatedAt) {
+    public HowItWork(int id, String imageBasePath, String imageName, String caption, String description,
+                     String userAction, String additionalInfo, String tip, String status,
+                     Timestamp createdAt, Timestamp updatedAt) {
         this.id = id;
         this.imageBasePath = imageBasePath;
         this.imageName = imageName;
@@ -36,11 +36,11 @@ public class HowItWorks {
         this.updatedAt = updatedAt;
     }
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 

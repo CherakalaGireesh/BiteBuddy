@@ -22,9 +22,9 @@ public class PropertiesUtil {
     private static void loadPropertyFile(String filename) throws IOException {
         try (InputStream inputStream = new FileInputStream(filename)) {
             properties.load(inputStream);
-            System.out.println("Successfully loaded properties file: " + filename);
+            System.out.println("Successfully loaded" + filename +" properties file");
         } catch (IOException exception) {
-            System.out.println("Error loading properties from file : " + filename);
+            System.out.println("Error loading properties from" + filename + "file : " + exception.getMessage());
             throw exception;
         }
     }

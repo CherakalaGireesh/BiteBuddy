@@ -10,13 +10,14 @@ CREATE TABLE intro_slides(
                             created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                             updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
 CREATE OR REPLACE TRIGGER UpdateIntroSlideTimestamp
 BEFORE UPDATE ON intro_slides
                   FOR EACH ROW
 BEGIN
   :NEW.updated_at := CURRENT_TIMESTAMP;
 END;
-/         image_name VARCHAR2(255),
+/
 
 
 INSERT INTO intro_slides (image_name, caption, description, features, keywords)
