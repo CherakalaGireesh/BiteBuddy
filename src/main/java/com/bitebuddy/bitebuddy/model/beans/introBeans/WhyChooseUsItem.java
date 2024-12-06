@@ -2,40 +2,34 @@ package com.bitebuddy.bitebuddy.model.beans.introBeans;
 
 import java.sql.Timestamp;
 
-public class WhyChooseUs {
+public class WhyChooseUsItem {
 
     private int id;
     private String imageBasePath;
-    private String imagePath;
     private String imageName;
     private String caption;
     private String description;
-    private String backgroundColor;
-    private Timestamp createAt;
-    private Timestamp updateAt;
+    private Timestamp createdAt;
+    private Timestamp updatedAt;
 
     //Default constructor
-    public WhyChooseUs() {}
+    public WhyChooseUsItem() {}
 
     //Parameterized constructors
-    public WhyChooseUs(String imagePath, String imageName, String caption, String description, String backgroundColor) {
-        this.imagePath = imagePath;
+    public WhyChooseUsItem(String imageName, String caption, String description) {
         this.imageName = imageName;
         this.caption = caption;
         this.description = description;
-        this.backgroundColor = backgroundColor;
     }
 
-    public WhyChooseUs(int id, String imageBasePath, String imagePath, String imageName, String caption, String description, String backgroundColor, Timestamp createAt, Timestamp updateAt) {
+    public WhyChooseUsItem(int id, String imageBasePath, String imageName, String caption, String description, Timestamp createdAt, Timestamp updatedAt) {
         this.id = id;
         this.imageBasePath = imageBasePath;
-        this.imagePath = imagePath;
         this.imageName = imageName;
         this.caption = caption;
         this.description = description;
-        this.backgroundColor = backgroundColor;
-        this.createAt = createAt;
-        this.updateAt = updateAt;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
     }
 
     public int getId() {
@@ -52,14 +46,6 @@ public class WhyChooseUs {
 
     public void setImageBasePath(String imageBasePath) {
         this.imageBasePath = imageBasePath;
-    }
-
-    public String getImagePath() {
-        return imagePath;
-    }
-
-    public void setImagePath(String imagePath) {
-        this.imagePath = imagePath;
     }
 
     public String getImageName() {
@@ -86,42 +72,32 @@ public class WhyChooseUs {
         this.description = description;
     }
 
-    public String getBackgroundColor() {
-        return backgroundColor;
+    public Timestamp getCreatedAt() {
+        return createdAt;
     }
 
-    public void setBackgroundColor(String backgroundColor) {
-        this.backgroundColor = backgroundColor;
+    public void setCreatedAt(Timestamp createdAt) {
+        this.createdAt = createdAt;
     }
 
-    public Timestamp getCreateAt() {
-        return createAt;
+    public Timestamp getUpdatedAt() {
+        return updatedAt;
     }
 
-    public void setCreateAt(Timestamp createAt) {
-        this.createAt = createAt;
-    }
-
-    public Timestamp getUpdateAt() {
-        return updateAt;
-    }
-
-    public void setUpdateAt(Timestamp updateAt) {
-        this.updateAt = updateAt;
+    public void setUpdatedAt(Timestamp updatedAt) {
+        this.updatedAt = updatedAt;
     }
 
     @Override
     public String toString() {
-        return "WhyChooseUs{" +
+        return "WhyChooseUsItem{" +
                 "id=" + id +
                 ", imageBasePath='" + imageBasePath + '\'' +
-                ", imagePath='" + imagePath + '\'' +
                 ", imageName='" + imageName + '\'' +
                 ", caption='" + caption + '\'' +
                 ", description='" + description + '\'' +
-                ", backgroundColor='" + backgroundColor + '\'' +
-                ", createAt=" + createAt +
-                ", updateAt=" + updateAt +
+                ", createdAt=" + createdAt +
+                ", updatedAt=" + updatedAt +
                 '}';
     }
 }

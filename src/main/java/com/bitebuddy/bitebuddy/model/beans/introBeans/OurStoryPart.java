@@ -2,35 +2,29 @@ package com.bitebuddy.bitebuddy.model.beans.introBeans;
 
 import java.sql.Timestamp;
 
-public class OurTeam {
+public class OurStoryPart {
     private int id;
     private String imageBasePath;
     private String imageName;
-    private String name;
-    private String role;
     private String caption;
     private String description;
-    private Timestamp createdAt;
-    private Timestamp updatedAt;
+    private java.sql.Timestamp createdAt;
+    private java.sql.Timestamp updatedAt;
 
     // Default constructor
-    public OurTeam() {}
+    public OurStoryPart() {}
 
-    // Parameterized constructors
-    public OurTeam(String imageName, String name, String role, String caption, String description) {
+    // Parameterized constructor
+    public OurStoryPart(String imageName, String caption, String description) {
         this.imageName = imageName;
-        this.name = name;
-        this.role = role;
         this.caption = caption;
         this.description = description;
     }
 
-    public OurTeam(int id, String imageBasePath, String imageName, String name, String role, String caption, String description, Timestamp createdAt, Timestamp updatedAt) {
+    public OurStoryPart(int id, String imageBasePath, String imageName, String caption, String description, Timestamp createdAt, Timestamp updatedAt) {
         this.id = id;
         this.imageBasePath = imageBasePath;
         this.imageName = imageName;
-        this.name = name;
-        this.role = role;
         this.caption = caption;
         this.description = description;
         this.createdAt = createdAt;
@@ -62,22 +56,6 @@ public class OurTeam {
         this.imageName = imageName;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
-    }
-
     public String getCaption() {
         return caption;
     }
@@ -98,7 +76,7 @@ public class OurTeam {
         return createdAt;
     }
 
-    public void setCreatedAt(Timestamp createdAt) {
+    public void setCreatedAt(java.sql.Timestamp createdAt) {
         this.createdAt = createdAt;
     }
 
@@ -106,19 +84,17 @@ public class OurTeam {
         return updatedAt;
     }
 
-    public void setUpdatedAt(Timestamp updatedAt) {
+    public void setUpdatedAt(java.sql.Timestamp updatedAt) {
         this.updatedAt = updatedAt;
     }
 
     // Overridden toString method
     @Override
     public String toString() {
-        return "OurTeam{" +
+        return "OurStory{" +
                 "id=" + id +
                 ", imageBasePath='" + imageBasePath + '\'' +
                 ", imageName='" + imageName + '\'' +
-                ", name='" + name + '\'' +
-                ", role='" + role + '\'' +
                 ", caption='" + caption + '\'' +
                 ", description='" + description + '\'' +
                 ", createdAt=" + createdAt +
