@@ -1,12 +1,12 @@
-package com.bitebuddy.bitebuddy.model.dao.introDao;
+package com.bitebuddy.bitebuddy.model.service.introService;
 
 import com.bitebuddy.bitebuddy.model.beans.introBeans.HowItWork;
 
 import java.util.List;
 
-public interface HowItWorkDao {
+public interface HowItWorkService {
     //Create
-    public boolean addHowItWork(HowItWork howItWork);
+    public boolean addHowItWorks(HowItWork howItWork);
 
     //Read
     public HowItWork getHowItWorkById(int id);;

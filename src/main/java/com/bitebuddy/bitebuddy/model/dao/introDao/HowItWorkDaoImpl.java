@@ -1,11 +1,9 @@
 package com.bitebuddy.bitebuddy.model.dao.introDao;
 
 import com.bitebuddy.bitebuddy.model.beans.introBeans.HowItWork;
-import com.bitebuddy.bitebuddy.model.beans.introBeans.IntroSlide;
 import com.bitebuddy.bitebuddy.util.DBUtil;
 import com.bitebuddy.bitebuddy.util.PropertiesUtil;
 
-import javax.xml.transform.Source;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -13,10 +11,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HowItWorksDaoImpl implements HowItWorkDao{
+public class HowItWorkDaoImpl implements HowItWorkDao{
     private static Connection connection = DBUtil.getConnection();
     @Override
-    public boolean addHowItWorks(HowItWork howItWork) {
+    public boolean addHowItWork(HowItWork howItWork) {
         String query = PropertiesUtil.getProperty("howItWorks.insert");
         try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             preparedStatement.setInt(1, howItWork.getId());
