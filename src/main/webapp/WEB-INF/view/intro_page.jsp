@@ -1,12 +1,18 @@
-<%@ page import="com.bitebuddy.bitebuddy.model.beans.introBeans.IntroSlide" %>
-<%@ page import="java.util.List" %><%--
-  Created by IntelliJ IDEA.
-  User: User
-  Date: 12/10/2024
-  Time: 12:22 PM
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="java.util.List" %>
+<%@ page import="com.bitebuddy.bitebuddy.model.beans.introBeans.*" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+<%
+  List<IntroSlide> introSlides = (List<IntroSlide>) request.getAttribute("introSlides");
+  List<HowItWork> howItWorks = (List<HowItWork>) request.getAttribute("howItWorks");
+  List<OurMission> ourMissions = (List<OurMission>) request.getAttribute("ourMissions");
+  List<OurStoryPart> ourStoryParts = (List<OurStoryPart>) request.getAttribute("ourStoryParts");
+  List<OurValue> ourValues = (List<OurValue>) request.getAttribute("ourValues");
+  List<OurTeamMember> ourTeamMembers = (List<OurTeamMember>) request.getAttribute("ourTeamMembers");
+  List<WhyChooseUsItem> whyChooseUsItems = (List<WhyChooseUsItem>) request.getAttribute("whyChooseUsItems");
+  List<CustomerReview> customerReviews = (List<CustomerReview>) request.getAttribute("customerReviews");
+%>
+
 <html>
   <head>
     <meta charset="UTF-8"/>
@@ -19,11 +25,17 @@
         .custom-navbar-brand {
           max-width: 125px;
         }
+        .custom-card-img-height{
+          max-height: 150px;
+        }
       }
 
       @media (min-width: 768px) {
         .custom-navbar-brand {
           max-width: 150px;
+        }
+        .custom-card-img-height{
+          max-height: 250px;
         }
       }
 
@@ -32,61 +44,8 @@
         color: #fff;
       }
 
-      .carousel-item {
-        transition: transform 1s ease, opacity 1s ease;
-      }
-
-      .carousel-caption {
-        background: rgba(0, 0, 0, 0.6);
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        max-width: 90%;
-        left: 5%;
-      }
-
-      .carousel-item img {
-        object-fit: cover;
-        height: 60vh;
-        border-radius: 10px;
-      }
-
-      .carousel-caption h5 {
-        font-size: 2.5rem;
-        font-weight: bold;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        color: #f8c15c;
-      }
-
-      .carousel-caption p {
-        font-size: 1.1rem;
-        color: #f1f1f1;
-      }
-
-      .features-list {
-        font-size: 1rem;
-        color: #f1f1f1;
-        line-height: 1.8;
-      }
-
-      .keywords {
-        font-size: 1rem;
-        font-weight: bold;
-        color: #f8c15c;
-      }
-
-      /* Responsive Design */
-      @media (max-width: 768px) {
-        .carousel-caption h5 {
-          font-size: 1.8rem;
-        }
-        .carousel-caption p {
-          font-size: 1rem;
-        }
-        .features-list, .keywords {
-          font-size: 0.9rem;
-        }
+      .text-orange {
+        color: #ff7727;
       }
 
     </style>
@@ -128,60 +87,34 @@
         </div>
     </nav>
 
-    <main class="container py-3">
-      <div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-bs-ride="carousel">
-        <!-- Carousel Indicators -->
-        <div class="carousel-indicators">
+    <main class="container">
+      <!-- intro slide show -->
+
+      <!-- how it works -->
+      <div class="container p-0 my-2">
+        <h3 class="text-orange">How It Works ?</h3>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
           <%
-            List<IntroSlide> introSlides = (List<IntroSlide>) request.getAttribute("introSlides");
-            int slideCount = introSlides.size();
-            for (int i = 0; i < slideCount; i++) {
+            for (HowItWork howItWork : howItWorks) {
           %>
-          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="<%= i %>" class="<%= (i == 0) ? "active" : "" %>" aria-current="true" aria-label="Slide <%= i + 1 %>"></button>
-          <% } %>
-        </div>
-
-        <!-- Carousel Inner (Slides) -->
-        <div class="carousel-inner">
-          <%
-            int index = 0;
-            for (IntroSlide slide : introSlides) {
-              String activeClass = (index == 0) ? "active" : "";
-          %>
-          <div class="carousel-item <%= activeClass %>">
-            <!-- Image -->
-            <img src="${pageContext.request.contextPath}/images/IntroSlides/favorite-food-delivered.jpeg" class="d-block w-100" alt="<%= slide.getCaption() %>">
-
-            <!-- Caption Overlay -->
-            <div class="carousel-caption d-none d-md-block">
-              <h5><%= slide.getCaption() %></h5>
-              <p><%= slide.getDescription() %></p>
-
-              <!-- Features List -->
-              <ul class="features-list">
-                <li><strong>Features:</strong> <%= slide.getFeatures() %></li>
-              </ul>
-
-              <!-- Keywords Section -->
-              <p class="keywords"><strong>Keywords:</strong> <%= slide.getKeywords() %></p>
+          <div class="col">
+            <div class="card">
+              <img src="${pageContext.request.contextPath}/images/HowItWorks/contact-support.jpeg" class="card-img-top custom-card-img-height img-ful" alt="...">
+              <div class="card-body">
+                <h5 class="card-title"><%= howItWork.getCaption() %></h5>
+                <p class="card-text"><%= howItWork.getDescription() %></p>
+              </div>
             </div>
           </div>
           <%
-              index++;
             }
           %>
-        </div>
 
-        <!-- Carousel Controls (Navigation) -->
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
+        </div>
       </div>
+      <!-- about us -->
+
+      <!-- Contact us -->
 
     </main>
 
